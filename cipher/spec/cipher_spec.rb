@@ -1,8 +1,8 @@
 # spec/cipher_spec.rb
 require './lib/cipher.rb'
 
-describe CaesarCipher do
-  subject { CaesarCipher.new }
+describe cipher do
+  subject { cipher.new }
 
   describe '#translate' do
     it 'works with small positive shift' do
