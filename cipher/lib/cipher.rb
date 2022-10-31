@@ -3,7 +3,7 @@
 # abcdefghijklmnopqrstuvwxyz
 # defghijklmnopqrstuvwxyzabc
 
-def cipher(str, num)
+def translate(str, num)
   count = num
 
   #turn str into array
@@ -12,9 +12,12 @@ def cipher(str, num)
   #turn array into codes
   b = a.map{|item| item.ord}
 
+  c = []
+
   #for each item, shift the code
   b.each {
     |item| 
+    puts item
     if item > 96 && item < 123 #Lowercase Letters
       while count != 0 do
         
@@ -38,7 +41,7 @@ def cipher(str, num)
       count = num
     elsif item == 32 #Spaces
       item = 32
-    elsif item > 65 && item < 90 #Capital Letters
+    elsif item > 65 && item < 91 #Capital Letters
       while count != 0 do
         
         if count > 0
@@ -60,10 +63,10 @@ def cipher(str, num)
       end
       count = num
     end
-    puts item.chr
+    c << item.chr
   }
+
+  c.join("")
 end
 
-myString = "Ee!"
-
-cipher(myString, -5)
+# puts translate("Zz", 3)
