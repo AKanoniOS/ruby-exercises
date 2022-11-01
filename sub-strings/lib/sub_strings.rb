@@ -1,10 +1,18 @@
-def sub_string (word, array)
-  word.downcase!
-  array.each {|item| item.downcase!}
-  puts array.count(word)
+dictionary = ["be","be","be","below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+input = "below"
+
+
+
+def sub_string(input, array)
+  result = Hash.new
+  
+  array.each {
+    |item|
+    result[item] = input.scan(item).count if input.scan(item).count > 0
+    
+  }
+
+  puts result
 end
 
-word = "quick"
-dictionary = "The quick brown fox jumps over the lazy dog"
-
-sub_string(word, dictionary.split)
+sub_string(input, dictionary)
