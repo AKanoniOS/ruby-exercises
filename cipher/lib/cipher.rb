@@ -1,19 +1,10 @@
-
-# 12345678901234567890123456
-# abcdefghijklmnopqrstuvwxyz
-# defghijklmnopqrstuvwxyzabc
-
 def translate(str, num)
   count = num
-
   #turn str into array
   a = str.split("")
-
   #turn array into codes
   b = a.map{|item| item.ord}
-
   c = []
-
   #for each item, shift the code
   b.each {
     |item| 
@@ -41,7 +32,7 @@ def translate(str, num)
       count = num
     elsif item == 32 #Spaces
       item = 32
-    elsif item > 65 && item < 91 #Capital Letters
+    elsif item > 64 && item < 91 #Capital Letters
       while count != 0 do
         
         if count > 0
@@ -69,4 +60,4 @@ def translate(str, num)
   c.join("")
 end
 
-# puts translate("Zz", 3)
+puts translate("Aa", 3)
