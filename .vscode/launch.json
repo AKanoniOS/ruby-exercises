@@ -17,12 +17,8 @@
       "name": "Attach with rdbg",
       "request": "attach"
     },
-    {
-      "type": "pry",
-      "name": [
-          "binding.pry"
-      ],
-      "description": "Debug with pry"
-  }
+    "ruby.lint": {
+      "rubocop": true,
+    }
   ]
 }
