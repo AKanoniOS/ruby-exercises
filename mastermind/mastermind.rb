@@ -1,7 +1,8 @@
 class Game
 
   def initialize
-    @difficulty = "easy"
+    diffs = ["easy","hard"]
+    @difficulty = diffs[0]
   end
 
   class Player
@@ -40,15 +41,27 @@ class Game
 
   end
 
+  class Display
+    def rules
+      puts "\nTry to guess the computer's secret 4 digit code in less than 12 turns."
+      puts "If you see a 🟩 next to your guess digit, that means it's correct AND in the correct spot."
+      puts "If you see a 🟧, that means it's correct."
+      puts "If you see a ⬜️, that means it's incorrect."
+    end
+  end
+
   def play
     
     turns = 0
 
+    display = Display.new
     computer = Computer.new
     tries = []
 
+    display.rules
+
     while turns < 13
-      puts "Guess the computer's 4 number secret code:"
+      puts "\nGuess the computer's 4 number secret code:"
       p computer.unhide_code
       guess = gets
       tries.push(guess)
