@@ -27,8 +27,8 @@ class Game
     def display_guessed(input)
       array = input.split("")
       array.pop
-      array.each_index {
-        |i|
+      i = 0
+      4.times do
         if array[i] == @code_array[i]
           puts "🟩#{array[i]}" 
         elsif @code.include?(array[i])
@@ -36,7 +36,8 @@ class Game
         else
           puts "⬜️#{array[i]}"
         end
-      }
+        i += 1
+      end
     end
 
   end
@@ -62,8 +63,9 @@ class Game
 
     while turns < 13
       puts "\nGuess the computer's 4 number secret code:"
-      p computer.unhide_code
+      
       guess = gets
+
       tries.push(guess)
       computer.display_guessed(guess)
 
