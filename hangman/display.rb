@@ -46,4 +46,5 @@ class Display
       #{alphabet.join(" ")}
     }
   end
+
 end
