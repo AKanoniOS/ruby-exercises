@@ -2,8 +2,6 @@ require_relative("display.rb")
 
 class Game 
 
-  display = Display.new
-
   word_list = File.readlines("1000Words.txt")
 
   word_list.filter!{|word| (word.length > 4 && word.length < 13)}
@@ -11,6 +9,8 @@ class Game
   secret_word.downcase!
   secret_word_array = secret_word.split("")
   secret_word_array.pop
+
+  display = Display.new(secret_word)
 
   moves_remaining = 9
 
@@ -64,5 +64,5 @@ class Game
     puts display.main(moves_remaining, display_array.join(" "), display_alphabet)
   end
 
-  puts secret_word
+  puts display.reveal
 end

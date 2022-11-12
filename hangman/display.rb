@@ -1,10 +1,11 @@
 require 'colorize'
 
 class Display
-  def initialize
+  def initialize(secret_word)
     @hearts3 = "♥♥♥"
     @hearts2 = "♥♥♥"
     @hearts1 = "♥♥♥"
+    @secret_word = secret_word
   end
 
   def loselife
@@ -47,4 +48,7 @@ class Display
     }
   end
 
+  def reveal
+    "the word was #{@secret_word.upcase!.blue}"
+  end
 end
