@@ -12,11 +12,11 @@ class Display
     }
   end
 
-  def main(mr, display_array, fails_array, alphabet)
+  def main(mr, display_array, alphabet)
     %{
                 __________    #{display_array}  (#{display_array.length}letter word)
-               |          |                                                                     Incorrect:
-               O          |                                                                    #{fails_array}
+               |          |                                                                     
+               O          |                                                                    
               /|\\       ██   ██  █████  ███    ██  ██████  ███    ███  █████  ███    ██       
                |        ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██        
               / \\       ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██        

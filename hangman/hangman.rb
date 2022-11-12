@@ -60,7 +60,7 @@ class Game
 
     moves_remaining -= 1
 
-    puts display.main(moves_remaining, display_array.join(" "), fails_array, display_alphabet)
+    puts display.main(moves_remaining, display_array.join(" "), display_alphabet)
   end
 
   puts secret_word
