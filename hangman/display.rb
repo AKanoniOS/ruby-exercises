@@ -14,8 +14,8 @@ class Display
 
   def main(mr, display_array, alphabet)
     %{
-                __________    #{display_array}  (#{display_array.split(" ").length} letter word)
-               |          |                                                                     
+        #{"♥♥♥♥♥".red}   __________    #{display_array}  (#{display_array.split(" ").length} letter word)
+        #{"♥♥♥♥♥".red}  |          |                                                                     
                O          |                                                                    
               /|\\       ██   ██  █████  ███    ██  ██████  ███    ███  █████  ███    ██       
                |        ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██        

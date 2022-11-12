@@ -21,11 +21,11 @@ class Game
   strike_alphabet = %w( a̶ b̶ c̶ d̶ e̶ f̶ g̶ h̶ i̶ j̶ k̶ l̶ m̶ n̶ o̶ p̶ q̶ r̶ s̶ t̶ u̶ v̶ w̶ x̶ y̶ z̶ )
 
   puts "                            "
-  puts "Guess the word --->  #{display_array.join(" ")} "
+  puts "enter letter to guess:"
 
 
 
-  puts display.title
+  puts display.main(moves_remaining, display_array.join(" "), display_alphabet)
 
   while moves_remaining != 0
     
