@@ -25,8 +25,8 @@ class Game
 
 
 
-  puts display.main(moves_remaining, display_array.join(" "), display_alphabet)
-
+  puts display.main("-", display_array.join(" "), display_alphabet)
+  
   while moves_remaining != 0
     
     puts "enter a letter to guess:"
