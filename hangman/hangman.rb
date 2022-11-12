@@ -15,6 +15,10 @@ class Game
   moves_remaining = 10
 
   display_array = Array.new(secret_word.length-1, "_")
+  fails_array = []
+  display_alphabet = %w( a b c d e f g h i j k l m n o p q r s t u v w x y z )
+  circle_alphabet = %w( ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ )
+  strike_alphabet = %w( )
 
   puts display_array.join(" ")
 
@@ -28,18 +32,26 @@ class Game
       exit
     end
 
+    not_found = true
+
     secret_word_array.each_with_index {
       |item, index|
       if item == guess
         display_array[index] = item
+        not_found = false
       end
     }
 
-    # pp secret_word_array.join(" ")
-    # puts display_array.join(" ")
+    # if guess is incorrect
+    if not_found
+      fails_array.push(guess)
+      display_alphabet.map! {|guess| }
+    end
 
     moves_remaining -= 1
 
-    puts display.main(moves_remaining, display_array.join(" "))
+    puts display.main(moves_remaining, display_array.join(" "), fails_array, display_alphabet)
   end
+
+  puts secret_word
 end
