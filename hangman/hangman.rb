@@ -2,34 +2,39 @@ class Game
 
   word_list = File.readlines("1000Words.txt")
 
-  pruned_word_list = word_list.filter{|word| word.length > 4 && word.length < 13}
+  pruned_word_list = word_list.map{|word| word.length > 4 && word.length < 13}
   secret_word = word_list.sample
   secret_word.downcase!
-  secret_word_array = secret_word.split("").pop
+  secret_word_array = secret_word.split("")
+  secret_word_array.pop
 
-  moves_remaining = 5
+  moves_remaining = 10
 
-  pp display_array = Array.new(secret_word.length, "_")
+  display_array = Array.new(secret_word.length-1, "_")
+
+  puts display_array.join(" ")
 
   while moves_remaining != 0
     puts "enter a letter to guess:"
     guess = gets.chomp
     guess.downcase!
-    guess_word_array = guess.split("")
 
+    if guess == display_array.join(" ")
+      puts "You guessed it"
+      exit
+    end
     
     puts moves_remaining
 
-    guess_word_array.each_with_index {
+    secret_word_array.each_with_index {
       |item, index|
-
+      if item == guess
+        display_array[index] = item
+      end
     }
 
-    pp secret_word_array
-    pp guess_word_array
-    pp display_array
-
-
+    # pp secret_word_array.join(" ")
+    pp display_array.join(" ")
 
     moves_remaining -= 1
   end
