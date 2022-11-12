@@ -6,7 +6,7 @@ class Game
 
   word_list = File.readlines("1000Words.txt")
 
-  pruned_word_list = word_list.map{|word| word.length > 4 && word.length < 13}
+  word_list.filter!{|word| (word.length > 4 && word.length < 13)}
   secret_word = word_list.sample
   secret_word.downcase!
   secret_word_array = secret_word.split("")
@@ -20,7 +20,10 @@ class Game
   circle_alphabet = %w( ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ )
   strike_alphabet = %w( a̶ b̶ c̶ d̶ e̶ f̶ g̶ h̶ i̶ j̶ k̶ l̶ m̶ n̶ o̶ p̶ q̶ r̶ s̶ t̶ u̶ v̶ w̶ x̶ y̶ z̶ )
 
-  puts display_array.join(" ") 
+  puts "                            "
+  puts "Guess the word --->  #{display_array.join(" ")} "
+
+
 
   puts display.title
 
