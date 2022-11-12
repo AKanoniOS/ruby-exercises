@@ -22,7 +22,10 @@ class Game
 
   puts display_array.join(" ") 
 
+  puts display.title
+
   while moves_remaining != 0
+    
     puts "enter a letter to guess:"
     guess = gets.chomp
     guess.downcase!
