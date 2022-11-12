@@ -1,8 +1,8 @@
-require_relative("text.rb")
+require_relative("display.rb")
 
 class Game 
 
-  text = Text.new
+  display = Display.new
 
   word_list = File.readlines("1000Words.txt")
 
@@ -27,8 +27,6 @@ class Game
       puts "You guessed it"
       exit
     end
-    
-    puts moves_remaining
 
     secret_word_array.each_with_index {
       |item, index|
@@ -38,10 +36,10 @@ class Game
     }
 
     # pp secret_word_array.join(" ")
-    pp display_array.join(" ")
+    # puts display_array.join(" ")
 
     moves_remaining -= 1
 
-    puts text.someText
+    puts display.main(moves_remaining, display_array.join(" "))
   end
 end
