@@ -12,7 +12,7 @@ class Game
   secret_word_array = secret_word.split("")
   secret_word_array.pop
 
-  moves_remaining = 10
+  moves_remaining = 9
 
   display_array = Array.new(secret_word.length-1, "_")
   fails_array = []
@@ -58,9 +58,8 @@ class Game
       display_alphabet = display_alphabet.each_with_index {|item, index| display_alphabet[index] = "▉" if item == guess}
       
       display.loselife
+      moves_remaining -= 1
     end
-
-    moves_remaining -= 1
 
     puts display.main(moves_remaining, display_array.join(" "), display_alphabet)
   end
