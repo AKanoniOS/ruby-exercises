@@ -40,6 +40,7 @@ class Game
 
     not_found = true
 
+    #if guess is correct
     secret_word_array.each_with_index {
       |item, index|
       if item == guess
@@ -53,12 +54,10 @@ class Game
 
     # if guess is incorrect
     if not_found
-      fails_array.push(guess)
-      # if not found, strike letter in display
-      # display_alphabet = display_alphabet.each_with_index {|item, index| display_alphabet[index] = strike_alphabet[index] if item == guess}
-
       # if not found, block off in display
       display_alphabet = display_alphabet.each_with_index {|item, index| display_alphabet[index] = "▉" if item == guess}
+      
+      display.loselife
     end
 
     moves_remaining -= 1
