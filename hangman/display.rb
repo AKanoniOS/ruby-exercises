@@ -1,11 +1,54 @@
 require 'colorize'
 
 class Display
-  def initialize(secret_word)
-    @hearts3 = "♥♥♥"
-    @hearts2 = "♥♥♥"
-    @hearts1 = "♥♥♥"
+  def initialize(secret_word = '', moves_remaining = 9)
     @secret_word = secret_word
+    if moves_remaining == 9
+      @hearts3 = "♥♥♥"
+      @hearts2 = "♥♥♥"
+      @hearts1 = "♥♥♥"
+    elsif moves_remaining == 8
+      @hearts3 = "♥♥♥"
+      @hearts2 = "♥♥♥"
+      @hearts1 = "♥♥"
+    elsif moves_remaining == 7
+      @hearts3 = "♥♥♥"
+      @hearts2 = "♥♥♥"
+      @hearts1 = "♥"
+    elsif moves_remaining == 6
+      @hearts3 = "♥♥♥"
+      @hearts2 = "♥♥♥"
+      @hearts1 = ""
+    elsif moves_remaining == 5
+      @hearts3 = "♥♥♥"
+      @hearts2 = "♥♥"
+      @hearts1 = ""
+    elsif moves_remaining == 4
+      @hearts3 = "♥♥♥"
+      @hearts2 = "♥"
+      @hearts1 = ""
+    elsif moves_remaining == 3
+      @hearts3 = "♥♥♥"
+      @hearts2 = ""
+      @hearts1 = ""
+    elsif moves_remaining == 2
+      @hearts3 = "♥♥"
+      @hearts2 = ""
+      @hearts1 = ""
+    elsif moves_remaining == 1
+      @hearts3 = "♥"
+      @hearts2 = ""
+      @hearts1 = ""
+    elsif moves_remaining == 0
+      @hearts3 = ""
+      @hearts2 = ""
+      @hearts1 = ""
+    else
+      @hearts3 = ""
+      @hearts2 = ""
+      @hearts1 = ""
+    end
+    
   end
 
   def loselife
