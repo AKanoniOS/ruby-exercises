@@ -37,7 +37,7 @@ class Display
         #{@hearts3.red}
         #{@hearts2.red}   __________    #{display_array}  (#{display_array.split(" ").length} letter word)
         #{@hearts1.red}  |          |                                                                     
-               O          |                                                                    
+               O        |                                                                    
               /|\\       #{"██   ██  █████  ███    ██  ██████  ███    ███  █████  ███    ██".red}       
                |        #{"██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██".red}        
               / \\       #{"███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██".red}        
@@ -50,5 +50,9 @@ class Display
 
   def reveal
     "the word was #{@secret_word.upcase!.blue}"
+  end
+
+  def win
+    "YOU WIN!!!".green
   end
 end

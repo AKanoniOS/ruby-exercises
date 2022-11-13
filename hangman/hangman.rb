@@ -66,6 +66,13 @@ class Game
     end
 
     puts display.main(moves_remaining, display_array.join(" "), display_alphabet)
+
+    #checks if word is filled in
+    if display_array.join("").include?("_") == false
+      puts display.win
+      exit
+    end
+
   end
 
   puts display.reveal
