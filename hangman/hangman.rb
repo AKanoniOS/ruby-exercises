@@ -4,7 +4,7 @@ require 'tty-prompt'
 
 class Game  
 
-  def play
+  def play    
 
     word_list = File.readlines("1000Words.txt")
 
@@ -18,7 +18,13 @@ class Game
 
     prompt = TTY::Prompt.new
     puts display.title
-    prompt.select("Would you like to start a new game or resume an old one?", %w(Start_New Resume_Old)) 
+    mode = prompt.select("Would you like to start a new game or resume an old one?", %w(Start_New Resume_Old))
+    
+    if mode == "Start_New"
+      puts "you selected start new"
+    else
+      puts "you selected resume old"
+    end
 
     moves_remaining = 9
 
@@ -33,7 +39,7 @@ class Game
 
 
 
-    puts display.main("-", display_array.join(" "), display_alphabet)
+    puts display.main(moves_remaining, display_array.join(" "), display_alphabet)
     
     while moves_remaining != 0
       
