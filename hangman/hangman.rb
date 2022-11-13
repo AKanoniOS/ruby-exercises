@@ -2,7 +2,7 @@ require_relative("display.rb")
 require 'tty-prompt'
 
 class Game 
-  
+
   word_list = File.readlines("1000Words.txt")
 
   word_list.filter!{|word| (word.length > 4 && word.length < 13)}
@@ -34,8 +34,7 @@ class Game
   
   while moves_remaining != 0
     
-    puts "enter a letter to guess:"
-    guess = gets.chomp
+    guess = prompt.keypress("Enter a letter to guess:")
     guess.downcase!
 
     if guess == display_array.join(" ")
