@@ -1,7 +1,8 @@
 require_relative("display.rb")
+require 'tty-prompt'
 
 class Game 
-
+  
   word_list = File.readlines("1000Words.txt")
 
   word_list.filter!{|word| (word.length > 4 && word.length < 13)}
@@ -11,6 +12,10 @@ class Game
   secret_word_array.pop
 
   display = Display.new(secret_word)
+
+  prompt = TTY::Prompt.new
+  puts display.title
+  prompt.select("Would you like to start a new game or resume an old one?", %w(Start_New Resume_Old)) 
 
   moves_remaining = 9
 
