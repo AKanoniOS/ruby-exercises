@@ -1,15 +1,17 @@
 require_relative("display.rb")
 require 'tty-prompt'
+require 'yaml'
 
 
-class Game  
+class Game
+  def initialize
+    @word_list = File.readlines("1000Words.txt")
+  end
 
-  def play    
+  def play
 
-    word_list = File.readlines("1000Words.txt")
-
-    word_list.filter!{|word| (word.length > 4 && word.length < 13)}
-    secret_word = word_list.sample
+    @word_list.filter!{|word| (word.length > 4 && word.length < 13)}
+    secret_word = @word_list.sample
     secret_word.downcase!
     secret_word_array = secret_word.split("")
     secret_word_array.pop
@@ -43,7 +45,7 @@ class Game
     
     while moves_remaining != 0
       
-      guess = prompt.keypress("Enter a letter to guess:")
+      guess = prompt.keypress("Enter a letter to guess or press [space] to save game:")
       guess.downcase!
 
       if guess == display_array.join(" ")
@@ -80,6 +82,10 @@ class Game
       if display_array.join("").include?("_") == false
         puts display.win
         exit
+      end
+
+      if guess == " "
+        
       end
 
     end
