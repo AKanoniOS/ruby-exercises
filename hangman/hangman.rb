@@ -78,6 +78,20 @@ class Game
           end
         }
 
+        if guess == " "
+          save = {
+            moves_remaining: moves_remaining,
+            display_array: display_array,
+            display_alphabet: display_alphabet,
+            secret_word: @secret_word,
+            secret_word_array: @secret_word_array
+          }
+
+          File.open('save.yml','w') { |file| file.write(save.to_yaml) }
+
+          exit
+        end
+
         # if guess is incorrect
         if not_found
           # if not found, block off in display
@@ -95,24 +109,10 @@ class Game
           exit
         end
 
-        if guess == " "
-          save = {
-            moves_remaining: moves_remaining,
-            display_array: display_array,
-            display_alphabet: display_alphabet,
-            secret_word: @secret_word,
-            secret_word_array: @secret_word_array
-          }
-
-          File.open('save.yml','w') { |file| file.write(save.to_yaml) }
-
-          exit
-        end
-
       end
 
       puts display.reveal
-    else
+    else #RESUME GAME
 
       retrieve = YAML.load(File.read('save.yml'))
 
@@ -159,6 +159,19 @@ class Game
           end
         }
 
+        if guess == " "
+          save = {
+            moves_remaining: moves_remaining,
+            display_array: display_array,
+            display_alphabet: display_alphabet,
+            secret_word: @secret_word
+          }
+
+          File.open('save.yml','w') { |file| file.write(save.to_yaml) }
+          
+          exit
+        end
+
         # if guess is incorrect
         if not_found
           # if not found, block off in display
@@ -173,19 +186,6 @@ class Game
         #checks if word is filled in
         if display_array.join("").include?("_") == false
           puts display.win
-          exit
-        end
-
-        if guess == " "
-          save = {
-            moves_remaining: moves_remaining,
-            display_array: display_array,
-            display_alphabet: display_alphabet,
-            secret_word: @secret_word
-          }
-
-          File.open('save.yml','w') { |file| file.write(save.to_yaml) }
-
           exit
         end
 

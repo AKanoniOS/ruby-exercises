@@ -1,24 +1,22 @@
 ---
-:moves_remaining: 6
+:moves_remaining: 5
 :display_array:
+- e
+- _
+- e
 - _
 - _
+- e
 - _
-- _
-- _
-- _
-- a
-- _
-- _
-- _
+- c
 - _
 :display_alphabet:
-- ⓐ
 - "▉"
 - "▉"
-- d
-- e
-- f
+- ⓒ
+- "▉"
+- ⓔ
+- "▉"
 - g
 - h
 - i
@@ -39,18 +37,16 @@
 - x
 - "y"
 - z
-:secret_word: 'downloading
+:secret_word: 'emergency
 
   '
 :secret_word_array:
-- d
-- o
-- w
-- "n"
-- l
-- o
-- a
-- d
-- i
-- "n"
+- e
+- m
+- e
+- r
 - g
+- e
+- "n"
+- c
+- "y"
