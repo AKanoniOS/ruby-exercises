@@ -8,6 +8,16 @@ display = Display.new
 puts display.title
 mode = prompt.select("Would you like to start a new game or resume an old one?", %w(New_game Resume_game))
 
+class Person
+  def initialize(name = "", age = "")
+    @name = name
+    @age = age
+  end
+
+  attr_reader :name, :age
+
+end
+
 class Game
   def initialize(mode)
     @mode = mode
@@ -86,16 +96,20 @@ class Game
         end
 
         if guess == " "
-          moves_remaining
-          display_alphabet
-          display_array
+      
         end
 
       end
 
       puts display.reveal
     else
-      puts "you selected resume old"
+      
+      retrieve = YAML.load(File.read('save.yml'))
+      puts retrieve[:name]
+
+      save = Person.new(gets, gets)
+      File.open('save.yml','w') { |file| file.write(save.to_yaml) }
+
     end
 
   end
